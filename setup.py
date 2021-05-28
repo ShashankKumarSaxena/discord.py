@@ -51,7 +51,7 @@ packages = [
     'discord.ext.tasks',
 ]
 
-setup(name='improved-dpy',
+setup(name='improveddpy',
       author='ShashankKumarSaxena',
       url='https://github.com/ShashankKumarSaxena/discord.py',
       project_urls={
