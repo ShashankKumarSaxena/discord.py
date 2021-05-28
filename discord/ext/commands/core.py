@@ -1200,7 +1200,7 @@ class GroupMixin:
         """
         def decorator(func):
             kwargs.setdefault('parent', self)
-            result = command(*args, **kwargs)(func)
+            result = commandNew(*args, **kwargs)(func)
             self.add_command(result)
             return result
 
@@ -1217,7 +1217,7 @@ class GroupMixin:
         """
         def decorator(func):
             kwargs.setdefault('parent', self)
-            result = group(*args, **kwargs)(func)
+            result = groupNew(*args, **kwargs)(func)
             self.add_command(result)
             return result
 
@@ -1335,7 +1335,7 @@ class Group(GroupMixin, Command):
 
 # Decorators
 
-def command(name=None, cls=None, **attrs):
+def commandNew(name=None, cls=None, **attrs):
     """A decorator that transforms a function into a :class:`.Command`
     or if called with :func:`.group`, :class:`.Group`.
 
@@ -1375,7 +1375,7 @@ def command(name=None, cls=None, **attrs):
 
     return decorator
 
-def group(name=None, **attrs):
+def groupNew(name=None, **attrs):
     """A decorator that transforms a function into a :class:`.Group`.
 
     This is similar to the :func:`.command` decorator but the ``cls``
@@ -1386,7 +1386,7 @@ def group(name=None, **attrs):
     """
 
     attrs.setdefault('cls', Group)
-    return command(name=name, **attrs)
+    return commandNew(name=name, **attrs)
 
 def check(predicate):
     r"""A decorator that adds a check to the :class:`.Command` or its
